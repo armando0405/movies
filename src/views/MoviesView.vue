@@ -1,50 +1,8 @@
 <script setup>
-import { ref } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue'
-const movies = ref([
-    { 
-        id: 1, 
-        titulo: "Dune", 
-        duracion: "120 min", 
-        director: "Denis Villeneuve" 
-    },
-    { 
-        id: 2, 
-        titulo: "Interstellar", 
-        duracion: "169 min", 
-        director: "Christopher Nolan" 
-    },
-    { 
-        id: 3, 
-        titulo: "Parasite", 
-        duracion: "132 min", 
-        director: "Bong Joon-ho" 
-    },
-    { 
-        id: 4, 
-        titulo: "The Godfather", 
-        duracion: "175 min", 
-        director: "Francis Ford Coppola" 
-    },
-    { 
-        id: 5, 
-        titulo: "Pulp Fiction", 
-        duracion: "154 min", 
-        director: "Quentin Tarantino" 
-    },
-    { 
-        id: 6, 
-        titulo: "Spirited Away", 
-        duracion: "125 min", 
-        director: "Hayao Miyazaki" 
-    },
-    { 
-        id: 7, 
-        titulo: "The Shawshank Redemption", 
-        duracion: "142 min", 
-        director: "Frank Darabont" 
-    },
-]);
+import { useMovieStore } from '../stores/Store.js';
+
+const movieStore = useMovieStore();
 
 </script>
 
@@ -52,7 +10,7 @@ const movies = ref([
     <HeaderComponent />
     <h1>Movies</h1>
     <ul>
-        <li v-for="movie in movies" :key="movie.id">
+        <li v-for="movie in movieStore.movies" :key="movie.titulo">
             <h2>{{ movie.titulo }}</h2>
             <p>Duración: {{ movie.duracion }}</p>
             <p>Director: {{ movie.director }}</p>
