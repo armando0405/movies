@@ -2,6 +2,7 @@
 import { reactive /*, ref*/ } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue'
 import { useMovieStore } from '../stores/Store.js';
+import router from '@/router';
 
 const movieStore = useMovieStore();
 
@@ -27,6 +28,8 @@ const movie = reactive({
     movie.title = '';
     movie.duration = '';
     movie.director = '';
+
+    router.push({ name: "movies" });
  }
 </script>
 
