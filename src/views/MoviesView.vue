@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue'
-import { useMovieStore } from '../stores/Store.js';
+import { useMovieStore } from '../stores/movies.js';
 
 const movieStore = useMovieStore();
 

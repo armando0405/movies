@@ -1,7 +1,7 @@
 <script setup>
 import { reactive /*, ref*/ } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue'
-import { useMovieStore } from '../stores/Store.js';
+import { useMovieStore } from '../stores/movies.js';
 import router from '@/router';
 
 const movieStore = useMovieStore();
