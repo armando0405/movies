@@ -1,41 +1,56 @@
 <script setup>
+// Importa 'reactive' de Vue para crear un objeto reactivo que representa el formulario de la película.
 import { reactive /*, ref*/ } from 'vue';
+
+// Importa el componente de encabezado reutilizable.
 import HeaderComponent from '../components/HeaderComponent.vue'
+
+// Importa el store de películas para acceder y modificar el estado global de películas.
 import { useMovieStore } from '../stores/movies.js';
+
+// Importa el router para navegar entre vistas después de agregar una película.
 import router from '@/router';
 
+// Inicializa el store de películas para poder usar sus funciones y datos.
 const movieStore = useMovieStore();
 
+// Crea un objeto reactivo para almacenar los datos del formulario de la nueva película.
 const movie = reactive({
   title: '',
   duration: '',
   director: ''
 });
 
- const handleSubmit = () =>  {
+// Función que maneja el envío del formulario.
+// Valida que todos los campos estén completos, agrega la película al store y navega a la vista de películas.
+const handleSubmit = () =>  {
     if(!movie.title || !movie.duration || !movie.director) {
         alert('Por favor, complete todos los campos.');
         return;
     }
 
+    // Agrega la nueva película al store usando la función 'addMovie'.
     movieStore.addMovie({
         titulo: movie.title,
         duracion: `${movie.duration} min`,
         director: movie.director
     });
 
-    // Limpiar formulario
+    // Limpia los campos del formulario después de agregar la película.
     movie.title = '';
     movie.duration = '';
     movie.director = '';
 
+    // Redirige a la vista principal de películas.
     router.push({ name: "movies" });
- }
+}
 </script>
 
 <template>
+    <!-- Componente de encabezado reutilizable -->
     <HeaderComponent/>
     <h1>Agregar peliculas</h1>
+    <!-- Formulario para agregar una nueva película -->
     <form @submit.prevent="handleSubmit" class="form">
         <label for="title">Titulo</label>
         <input v-model="movie.title" type="text" id="title">
@@ -48,7 +63,6 @@ const movie = reactive({
 
         <button>Enviar</button>
     </form>
-
 </template>
 
 <style>

@@ -1,33 +1,45 @@
 <script setup>
+// Este componente muestra el encabezado principal de la aplicación.
+// Puede incluir navegación, logo, o título según se requiera.
 import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <header class="header">
-        <nav>
-            <ul class="nav-list">
-                <li>
-                    <RouterLink class="nav-link" :to="{ name: 'home' }">Home</RouterLink>
-                    <!-- tambien se puede hacer de la fomra simple si no quieres que sea dinamico de esta fomra to="/" -->
-                </li>
-                <li>
-                    <RouterLink class="nav-link" :to="{ name: 'create' }">nueva pelicula</RouterLink>
-                </li>
-                <li>
-                    <RouterLink class="nav-link" :to="{ name: 'movies' }">peliculas</RouterLink>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Encabezado principal de la aplicación -->
+  <header class="header">
+    <h1>Gestor de Películas</h1>
+    <!-- Aquí se pueden agregar enlaces de navegación si se desea -->
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <RouterLink class="nav-link" :to="{ name: 'home' }">Home</RouterLink>
+          <!-- tambien se puede hacer de la fomra simple si no quieres que sea dinamico de esta fomra to="/" -->
+        </li>
+        <li>
+          <RouterLink class="nav-link" :to="{ name: 'create' }">nueva pelicula</RouterLink>
+        </li>
+        <li>
+          <RouterLink class="nav-link" :to="{ name: 'movies' }">peliculas</RouterLink>
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
-<style>
+<style scoped>
 .header {
   background: #13172a;
   color: #fff;
-  font-weight: 500;
+  padding: 18px 0;
   text-align: center;
-  letter-spacing: 0.03em;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 22px;
+}
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .nav-list {

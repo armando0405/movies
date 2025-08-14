@@ -1,14 +1,19 @@
 <script setup>
+// Importa el componente de encabezado reutilizable.
 import HeaderComponent from '../components/HeaderComponent.vue'
+
+// Importa el store de películas para acceder al listado de películas.
 import { useMovieStore } from '../stores/movies.js';
 
+// Inicializa el store de películas para poder acceder a los datos reactivos.
 const movieStore = useMovieStore();
-
 </script>
 
 <template>
+    <!-- Componente de encabezado reutilizable -->
     <HeaderComponent />
     <h1>Movies</h1>
+    <!-- Lista todas las películas almacenadas en el store -->
     <ul>
         <li v-for="movie in movieStore.movies" :key="movie.titulo">
             <h2>{{ movie.titulo }}</h2>
