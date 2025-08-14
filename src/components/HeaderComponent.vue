@@ -23,15 +23,7 @@ import { RouterLink } from 'vue-router';
 
 <style>
 .header {
-    background: #13172a; /* azul navy oscuro */
-    padding: 1.2rem 0; /* aumentado el padding vertical */
-    border-radius: 0 0 6px 6px;
-    box-shadow: none;
-}
-
-.header h1 {
-  margin: 0 0 0.2rem 0;
-  font-size: 1.3rem;
+  background: #13172a;
   color: #fff;
   font-weight: 500;
   text-align: center;
