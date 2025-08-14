@@ -5,8 +5,9 @@ import { useRoute } from 'vue-router';
 
 const movieStore = useMovieStore();
 const route = useRoute();
+console.log(route);
 
-const movie = movieStore.getMovieByTitle(route.params.title);
+const movie = movieStore.getMovieByTitle(route.params.movieTitle);
 </script>
 <template>
   <HeaderComponent />
