@@ -1,12 +1,26 @@
 <script setup>
 // Importa el componente de encabezado reutilizable.
+import { onMounted, onUnmounted } from 'vue';
 import HeaderComponent from '../components/HeaderComponent.vue'
-
 // Importa el store de películas para acceder al listado de películas.
 import { useMovieStore } from '../stores/movies.js';
-
 // Inicializa el store de películas para poder acceder a los datos reactivos.
 const movieStore = useMovieStore();
+
+/*
+estas funciones de unmounted u unonmountes son utilizadas
+ para ejecutar código en momentos específicos del ciclo de vida del
+ componente.
+ onMounted cuando apenas se genera el se utiliza de une
+ y onUnmounted se utiliza cuando el componente es destruido.
+*/
+onMounted(()=>{
+  console.log("creacion de un onmounted");
+})
+
+onUnmounted(()=>{
+  console.log("destruccion de un onmounted");
+})
 </script>
 
 <template>
