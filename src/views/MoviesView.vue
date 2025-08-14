@@ -16,7 +16,11 @@ const movieStore = useMovieStore();
     <!-- Lista todas las películas almacenadas en el store -->
     <ul>
         <li v-for="movie in movieStore.movies" :key="movie.titulo">
-            <h2>{{ movie.titulo }}</h2>
+            <h2>
+                <router-link :to="{ name: 'movieDetails', params: { movieTitle: movie.titulo } }">
+                  {{ movie.titulo }}
+                </router-link>
+            </h2>
             <p>Duración: {{ movie.duracion }}</p>
             <p>Director: {{ movie.director }}</p>
         </li>
